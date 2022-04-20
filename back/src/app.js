@@ -1,8 +1,9 @@
 import cors from "cors";
 import express from "express";
+import { errorMiddleware } from "./middlewares/errorMiddleware";
 
-import { registerRouter } from "./routes/registerRouter";
-import { loginRouter } from "./routes/loginRouter";
+import { registerRouter } from "./routers/registerRouter";
+import { loginRouter } from "./routers/loginRouter";
 const app = express();
 
 app.use(cors());
@@ -14,7 +15,6 @@ app.get("/", (req, res) => {
   res.send("안녕하세요, 레이서 프로젝트 API 입니다.");
 });
 
-app.use(registerRouter);
-app.use(loginRouter);
+app.use(errorMiddleware);
 
 export { app };
