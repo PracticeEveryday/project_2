@@ -48,4 +48,14 @@ CocktailRouter.post("/modifyCocktail", async (req, res, next) => {
   }
 });
 
+CocktailRouter.post("/populateCocktail", async (req, res, next) => {
+  try {
+    const { cocktail } = req.body;
+    const findCocktail = await CocktailService.populateCocktail({ cocktail });
+    res.status(200).json(findCocktail);
+  } catch (error) {
+    next(error);
+  }
+});
+
 export { CocktailRouter };

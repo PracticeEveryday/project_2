@@ -17,6 +17,11 @@ class CocktailModel {
     const modifiedCocktail = await Cocktail.findByIdAndUpdate(filter, updateCocktailData, option);
     return modifiedCocktail;
   };
+
+  static populateCocktail = async ({ cocktail }) => {
+    const findCocktail = await Cocktail.findOne({ name: cocktail }).populate("rank");
+    return findCocktail;
+  };
 }
 
 export { CocktailModel };
