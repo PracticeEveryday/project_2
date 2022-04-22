@@ -4,6 +4,8 @@ import { errorMiddleware } from "./middlewares/errorMiddleware";
 import { registerRouter } from "./routers/registerRouter";
 import { loginRouter } from "./routers/loginRouter";
 import { CocktailRouter } from "./routers/CocktailRouter";
+import { RankRouter } from "./routers/RankRouter";
+
 import passport from "passport";
 import session from "express-session";
 import googleOAuth from "./utils/googleOAuth";
@@ -21,7 +23,7 @@ passport.serializeUser((user, done) => {
 app.use(registerRouter);
 app.use(loginRouter);
 app.use(CocktailRouter);
-
+app.use(RankRouter);
 passport.deserializeUser((user, done) => {
   done(null, user);
 });
@@ -30,11 +32,18 @@ app.get("/", (req, res) => {
   res.send("안녕하세요, 레이서 프로젝트 API 입니다.");
 });
 
-app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
 
-app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/error" }), function (req, res) {
-  res.redirect("/");
-});
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/error" }),
+  function (req, res) {
+    res.redirect("/");
+  }
+);
 
 app.use(registerRouter);
 app.use(loginRouter);
