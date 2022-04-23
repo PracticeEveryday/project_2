@@ -6,15 +6,15 @@ import { loginRouter } from "./routers/loginRouter";
 import { CocktailRouter } from "./routers/CocktailRouter";
 import { RankRouter } from "./routers/RankRouter";
 
-import swaggerOptions from "./swagger";
-import swaggerJsDoc from "swagger-jsdoc";
+// import swaggerOptions from "./modules/swagger";
+// import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
-import * as swaggerDocument from "./swagger.json";
+import * as swaggerDocument from "./modules/swagger.json";
 
 import { passport } from "./passport/googlePassport";
 
 const app = express();
-const specs = swaggerJsDoc(swaggerOptions);
+// const specs = swaggerJsDoc(swaggerOptions);
 
 app.use(cors());
 
