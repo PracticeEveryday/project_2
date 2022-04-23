@@ -6,9 +6,14 @@ import { loginRouter } from "./routers/loginRouter";
 import { CocktailRouter } from "./routers/CocktailRouter";
 import { RankRouter } from "./routers/RankRouter";
 
+import swaggerOptions from "./swagger";
+import swaggerJsDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
+
 import { passport } from "./passport/googlePassport";
 
 const app = express();
+const specs = swaggerJsDoc(swaggerOptions);
 
 app.use(cors());
 
@@ -19,15 +24,23 @@ app.get("/", (req, res) => {
   res.send("안녕하세요, 레이서 프로젝트 API 입니다.");
 });
 
+// swagger
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(specs, { explorer: true }));
+
+// google
 app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 
 app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/error" }), function (req, res) {
   res.redirect("/");
 });
-
+// -----------------------------------------------------------------------------------------------------------
+// MVP router
 app.use(registerRouter);
 app.use(loginRouter);
 app.use(CocktailRouter);
 app.use(RankRouter);
+
+// errorMessage yellow
 app.use(errorMiddleware);
+
 export { app };
