@@ -31,6 +31,43 @@
           }
         }
       }
+    },
+    "/register": {
+      "post": {
+        "tags": ["register user"],
+        "summary": "register user Post",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "email": "body",
+            "password": "body"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "user": {
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
     }
   }
 }
