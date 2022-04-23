@@ -9,6 +9,7 @@ import { RankRouter } from "./routers/RankRouter";
 import swaggerOptions from "./swagger";
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+import * as swaggerDocument from "./swagger.json";
 
 import { passport } from "./passport/googlePassport";
 
@@ -25,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 // swagger
-app.use("/swagger", swaggerUi.serve, swaggerUi.setup(specs, { explorer: true }));
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // google
 app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
