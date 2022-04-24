@@ -3,8 +3,6 @@ import { verifyToken } from "../middlewares/verifyToken";
 import { RankService } from "../services/RankService";
 const RankRouter = Router();
 
-// RankRouter.use(verifyToken);
-
 RankRouter.get("/rank10", verifyToken, async (req, res, next) => {
   try {
     const top10List = await RankService.top10();

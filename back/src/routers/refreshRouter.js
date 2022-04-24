@@ -5,9 +5,7 @@ const refreshRouter = Router();
 
 refreshRouter.post("/refresh", async (req, res, next) => {
   const { refreshToken, accessToken } = req.body;
-  console.log(refreshToken, accessToken);
-  //const [a, b] = check_token(accessToken, refreshToken);
-  //console.log(a, b);
+  const [a, b] = await check_token(accessToken, refreshToken);
 });
 
 export { refreshRouter };

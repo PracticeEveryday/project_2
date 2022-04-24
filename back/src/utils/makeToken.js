@@ -4,7 +4,7 @@ dotenv.config();
 
 const JWT_KEY = process.env.JWT_KEY;
 const makeToken = Object => {
-  const token = jwt.sign(Object, JWT_KEY, { expiresIn: "24h" });
+  const token = jwt.sign(Object, JWT_KEY, { expiresIn: 5 });
   return token;
 };
 
