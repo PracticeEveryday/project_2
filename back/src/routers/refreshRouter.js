@@ -1,11 +1,13 @@
 import { Router } from "express";
+import { checkAccessToken, checkRefreshToken } from "../utils/check_token";
 
-import { check_token } from "../utils/check_token";
 const refreshRouter = Router();
 
 refreshRouter.post("/refresh", async (req, res, next) => {
-  const { refreshToken, accessToken } = req.body;
-  const [a, b] = await check_token(accessToken, refreshToken);
+  let { refreshToken, accessToken } = req.body;
+  accessToken = await checkAccessToken(accessToken);
+  refreshToken = await checkRefreshToken(refreshToken);
+  console.log(accessToken, refreshToken);
 });
 
 export { refreshRouter };

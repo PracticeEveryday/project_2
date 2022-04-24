@@ -1,17 +1,41 @@
 import jwt from "jsonwebtoken";
 
+import { makeToken, makeRefreshToken } from "./makeToken";
+
 import dotenv from "dotenv";
 dotenv.config();
 
 const jwtkey = process.env.JWT_KEY;
-const check_token = async (accessToken, refreshToken) => {
+
+const checkAccessToken = async accessToken => {
   try {
-    const verifyAccess = jwt.verify(accessToken, jwtkey);
-    const verifyRefresh = jwt.verify(refreshToken, jwtkey);
-    return [verifyAccess, verifyRefresh];
+    const decoded = jwt.verify(accessToken, jwtkey);
+    accessToken = makeToken(decoded);
+    return {
+      status: "succ",
+      accessToken,
+    };
   } catch (error) {
-    throw new Error(error);
+    return {
+      status: "fail",
+      message: error.message,
+    };
   }
 };
 
-export { check_token };
+const checkRefreshToken = async refreshToken => {
+  try {
+    const decoded = jwt.verify(refreshToken, jwtkey);
+    return {
+      status: "succ",
+      refreshToken,
+    };
+  } catch (error) {
+    return {
+      status: "fail",
+      message: error.message,
+    };
+  }
+};
+
+export { checkAccessToken, checkRefreshToken };
