@@ -1,14 +1,13 @@
 import { UserModel } from "../db";
 
 import { hashPassword } from "../utils/hashPassword";
-import { makeToken } from "../utils/makeToken";
+import { makeToken, makeRefreshToken } from "../utils/makeToken";
 
 class LoginService {
   static delete = async ({ userId }) => {
     const deletedUser = await UserModel.delete({ userId });
     if (!deletedUser) {
-      const errorMessage =
-        "해당 이메일로 가입된 내역이 없습니다. 다시 한 번 확인해주세요";
+      const errorMessage = "해당 이메일로 가입된 내역이 없습니다. 다시 한 번 확인해주세요";
       return { errorMessage };
     }
     return deletedUser;
@@ -34,7 +33,6 @@ class LoginService {
   static findUser = async ({ email, password }) => {
     const discoveredUser = await UserModel.findByEmail({ email });
     const hashedPassword = hashPassword(password);
-    console.log(discoveredUser);
     const userId = String(discoveredUser._id);
 
     if (!discoveredUser) {
@@ -42,9 +40,10 @@ class LoginService {
       return { errorMessage };
     } else if (discoveredUser.password === hashedPassword) {
       const token = makeToken({ userId: userId });
+      const refreshToken = makeRefreshToken();
       return {
-        discoveredUser,
         token,
+        refreshToken,
       };
     } else {
       const errorMessage = "비밀번호가 틀립니다 다시 한 번 확인해 주세요";

@@ -8,4 +8,9 @@ const makeToken = Object => {
   return token;
 };
 
-export { makeToken };
+const makeRefreshToken = () => {
+  const refreshToken = jwt.sign({}, JWT_KEY, { expiresIn: "14d" });
+  return refreshToken;
+};
+
+export { makeToken, makeRefreshToken };
