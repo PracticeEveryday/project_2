@@ -6,6 +6,7 @@ import { loginRouter } from "./routers/loginRouter";
 import { CocktailRouter } from "./routers/CocktailRouter";
 import { RankRouter } from "./routers/RankRouter";
 import { refreshRouter } from "./routers/refreshRouter";
+import { CocktailInfoRouter } from "./routers/CocktailInfoRouter";
 // import swaggerOptions from "./modules/swagger";
 // import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
@@ -41,7 +42,7 @@ app.use(loginRouter);
 app.use(CocktailRouter);
 app.use(RankRouter);
 app.use(refreshRouter);
-
+app.use(CocktailInfoRouter);
 // errorMessage yellow
 app.use(errorMiddleware);
 
