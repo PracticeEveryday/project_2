@@ -9,6 +9,10 @@ class CocktailModel {
     const findCocktail = await Cocktail.findOne({ name: name });
     return findCocktail;
   };
+  static getPopulate = async ({ name }) => {
+    const cocktail = await Cocktail.findOne({ name: name }).populate("rank");
+    return cocktail;
+  };
 
   static modify = async (filter, updateCocktailData) => {
     const option = { returnOriginal: false };

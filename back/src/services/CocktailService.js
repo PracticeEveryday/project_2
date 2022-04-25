@@ -15,6 +15,11 @@ class CocktailService {
     const cocktailList = await CocktailModel.findCocktailList();
     return cocktailList;
   };
+
+  static getPopulate = async ({ name }) => {
+    const cocktail = await CocktailModel.getPopulate({ name });
+    return cocktail;
+  };
 }
 
 export { CocktailService };
