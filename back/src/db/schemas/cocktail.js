@@ -14,6 +14,13 @@ const CocktailSchema = new Schema({
   rank: {
     type: Schema.Types.ObjectId,
     ref: "Rank",
+    default: false,
+  },
+  flavor: {
+    type: String,
+  },
+  comment: {
+    type: String,
   },
 });
 
