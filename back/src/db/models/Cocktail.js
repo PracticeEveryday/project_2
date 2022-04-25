@@ -1,7 +1,7 @@
 import { Cocktail } from "../schemas/cocktail";
 
 class CocktailModel {
-  static addCocktail = async (addCocktailData) => {
+  static addCocktail = async addCocktailData => {
     const addCocktail = await Cocktail.create(addCocktailData);
     return addCocktail;
   };
@@ -12,12 +12,13 @@ class CocktailModel {
 
   static modify = async (filter, updateCocktailData) => {
     const option = { returnOriginal: false };
-    const modifiedCocktail = await Cocktail.findByIdAndUpdate(
-      filter,
-      updateCocktailData,
-      option
-    );
+    const modifiedCocktail = await Cocktail.findByIdAndUpdate(filter, updateCocktailData, option);
     return modifiedCocktail;
+  };
+
+  static findCocktailList = async () => {
+    const cocktailList = await Cocktail.find();
+    return cocktailList;
   };
 }
 

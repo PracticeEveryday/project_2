@@ -16,4 +16,13 @@ CocktailRouter.get("/cocktail", async (req, res, next) => {
   }
 });
 
+// 칵테일 리스트 API
+CocktailRouter.get("/cocktaillist", async (req, res, next) => {
+  try {
+    const CocktailList = await CocktailService.getCocktailList();
+    res.status(200).json(CocktailList);
+  } catch (error) {
+    next(error);
+  }
+});
 export { CocktailRouter };
