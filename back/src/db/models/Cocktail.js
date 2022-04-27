@@ -24,6 +24,11 @@ class CocktailModel {
     const cocktailList = await Cocktail.find();
     return cocktailList;
   };
+
+  static findById = async ({ getCocktailId }) => {
+    const cocktail = await Cocktail.findById({ _id: getCocktailId }).select("name");
+    return cocktail;
+  };
 }
 
 export { CocktailModel };
