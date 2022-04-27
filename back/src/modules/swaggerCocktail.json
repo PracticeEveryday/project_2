@@ -1,17 +1,15 @@
 {
   "paths": {
-    "/register": {
+    "/cocktail": {
       "post": {
-        "tags": ["User"],
-        "summary": "register user Post",
+        "tags": ["Cocktail"],
+        "summary": "cocktail 조회",
         "parameters": [
           {
             "in": "body",
             "name": "body",
-            "email": "body",
-            "password": "body",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Cocktail"
             }
           }
         ],
@@ -24,10 +22,47 @@
           }
         }
       }
+    },
+    "/populateCocktail": {
+      "post": {
+        "tags": ["Cocktail"],
+        "summary": "cocktail 조회 + populate",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Cocktail"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Bad Request"
+          }
+        }
+      }
+    },
+    "/cocktaillist": {
+      "get": {
+        "tags": ["Cocktail"],
+        "summary": "cocktail 조회",
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Bad Request"
+          }
+        }
+      }
     }
   },
   "definitions": {
-    "User": {
+    "Cocktail": {
       "properties": {
         "name": {
           "type": "string"
