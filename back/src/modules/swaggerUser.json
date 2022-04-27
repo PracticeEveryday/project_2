@@ -45,6 +45,7 @@
             "in": "body",
             "email": "body",
             "password": "body",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/User"
