@@ -79,7 +79,15 @@
       "post": {
         "tags": ["User"],
         "summary": "register user Post",
-        "parameters": [{ "in": "body", "name": "body", "email": "body", "password": "body" }],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "email": "body",
+            "password": "body",
+            "schema": { "$ref": "#/definitions/User" }
+          }
+        ],
         "responses": { "201": { "description": "OK" }, "404": { "description": "Failed. Bad Request" } }
       }
     },
@@ -87,7 +95,15 @@
       "post": {
         "tags": ["User"],
         "summary": "login user Post",
-        "parameters": [{ "in": "body", "email": "body", "password": "body", "required": true }],
+        "parameters": [
+          {
+            "in": "body",
+            "email": "body",
+            "password": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/User" }
+          }
+        ],
         "responses": { "201": { "description": "OK" }, "404": { "description": "Failed. Bad Request" } }
       }
     }

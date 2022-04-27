@@ -20,7 +20,10 @@
             "in": "body",
             "name": "body",
             "email": "body",
-            "password": "body"
+            "password": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
           }
         ],
         "responses": {
@@ -42,7 +45,10 @@
             "in": "body",
             "email": "body",
             "password": "body",
-            "required": true
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
           }
         ],
         "responses": {

@@ -5,10 +5,12 @@ class CocktailModel {
     const addCocktail = await Cocktail.create(addCocktailData);
     return addCocktail;
   };
+
   static findCocktail = async ({ name }) => {
     const findCocktail = await Cocktail.findOne({ name: name });
     return findCocktail;
   };
+
   static getPopulate = async ({ name }) => {
     const cocktail = await Cocktail.findOne({ name: name }).populate("rank");
     return cocktail;
