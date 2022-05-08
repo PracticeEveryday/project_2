@@ -1,0 +1,190 @@
+$maincolor: #151516;
+$star1: "../imgs/star1.jpg";
+$secondpage: "../imgs/gatsby.png";
+$thirdpage: "../imgs/thirdpage.jpg";
+#fp-nav ul li:hover a.active span,
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li:hover a.active span,
+.fp-slidesNav ul li a.active span {
+  background-color: white;
+}
+.firstPage {
+  .video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    margin-top: 150px;
+    &::before {
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $maincolor;
+      opacity: 0.6;
+      position: absolute;
+    }
+  }
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    margin-bottom: 10;
+  }
+}
+.scrollDown {
+  position: absolute;
+  z-index: 3;
+  bottom: 5%;
+  left: 50%;
+  color: white;
+  animation: bounce 0.5s infinite alternate;
+  transform: translateX(-50%);
+  @keyframes bounce {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-15px);
+    }
+  }
+}
+.introTextWrapper {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  top: 30%;
+  right: 5vw;
+  text-align: right;
+  p {
+    padding: 0.5vw;
+    color: #f1f7ed;
+  }
+  .introText1 {
+    font-size: 2vw;
+    font-weight: bold;
+  }
+  .introButton {
+    position: absolute;
+    bottom: -50%;
+    right: 1.5vw;
+    font-size: 1vw;
+    color: #f1f7ed;
+    border: 2px solid #f1f7ed;
+    padding: 10px 20px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 0 15px rgb(0, 0, 0 /15%);
+    }
+  }
+}
+
+// secondpage
+.secondPage {
+  .secondpageContainer {
+    margin-top: 150px;
+    width: 100%;
+    height: 100%;
+    background-color: $maincolor;
+    .top10 {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      &::before {
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url($secondpage);
+        background-size: cover;
+        position: absolute;
+        opacity: 0.5;
+      }
+      .top10ChartWrapper {
+        margin: auto;
+        padding: 0 100px;
+        .top10Chart {
+          position: relative;
+        }
+      }
+      .top10TextWrapper {
+        margin-top: auto;
+        margin-bottom: auto;
+        .top10Text {
+          position: relative;
+          color: white;
+          font-size: 40px;
+        }
+        .buttonBox {
+          text-align: center;
+          .top10Button {
+            background: linear-gradient(to right, lightpink, rgb(211, 98, 211));
+            color: white;
+            font-size: 1vw;
+            font-weight: bold;
+            margin-top: 50px;
+            cursor: pointer;
+            &:hover {
+              box-shadow: 0 0 15px rgb(0, 0, 0 /15%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// thirdpage
+.thirdPage {
+  background-image: url($star1);
+  background-size: cover;
+}
+.thirdpageContainer {
+  // background-color: black;
+  width: 80vw;
+  height: 70vh;
+  margin: 150px auto auto auto;
+  border-radius: 20px;
+  .dictionary {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &::before {
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      // background-image: url($thirdpage);
+      background-color: white; //(test-ing)
+      background-size: cover;
+      opacity: 0.4; //(test-int) 0.7 -> 0.4
+      position: absolute;
+      border-radius: 20px;
+    }
+    .textWrapper {
+      margin: auto 25vw;
+      .dictionaryText {
+        position: relative;
+        color: white;
+      }
+    }
+    .buttonBox {
+      text-align: center;
+      .dictionaryButton {
+        background: linear-gradient(to right, lightpink, rgb(211, 98, 211));
+        color: white;
+        font-size: 1vw;
+        font-weight: bold;
+        margin-top: 50px;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0 0 15px rgb(0, 0, 0 /15%);
+        }
+      }
+    }
+  }
+}

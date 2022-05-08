@@ -19,10 +19,6 @@
     {
       "name": "Cocktail",
       "description": "칵테일 조회 API"
-    },
-    {
-      "name": "Like",
-      "description": "유저 칵테일 LIKE API"
     }
   ],
   "schemes": [

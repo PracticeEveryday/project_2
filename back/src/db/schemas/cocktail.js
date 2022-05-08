@@ -25,6 +25,12 @@ const CocktailSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  likes : {
+    type : Number,
+  },
+  method : {
+    type : [String]
+  },
 });
 
 const Cocktail = model("Cocktail", CocktailSchema);

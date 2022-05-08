@@ -3,7 +3,27 @@
     "/rank10": {
       "get": {
         "tags": ["Rank"],
-        "summary": "cocktail 조회",
+        "summary": "Rank 상위 10개 데이터 반환",
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Bad Request"
+          }
+        }
+      }
+    },
+    "/rank/{name}": {
+      "get": {
+        "tags": ["Rank"],
+        "summary": "Rank 내 특정 칵테일 정보 반환",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name"
+          }
+        ],
         "responses": {
           "201": {
             "description": "OK"
@@ -18,7 +38,7 @@
   "definitions": {
     "Rank": {
       "properties": {
-        "name": {
+        "bane": {
           "type": "string"
         },
         "visitors": {
