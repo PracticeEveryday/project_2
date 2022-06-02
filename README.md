@@ -1,43 +1,207 @@
-# 저쪽 손님께서 보내신 겁니다.
+# 🍸 저쪽 손님께서 보내신 겁니다.
 
-- 최종 서비스 명을 위 괄호 부분에 작성하세요.
-- 최종 서비스의 한 줄 소개를 작성하세요.
+### 칵린이들을 위한 칵테일 소개 및 추천 서비스
 
-## 프로젝트 구성 안내
-
-- `bullet point 에 적힌 내용을 수정해 주시면 됩니다.`
-
-- `초기 기획은 언제든 수정될 수 있으니 웹서비스 결과를 내는데 초점을 두시기 바랍니다.`
+<br>
 
 ## 1. 프로젝트 소개
 
-**어떠한 데이터셋와 도구 및 기술을 사용했는지에 대한 설명과 엔드유저에게 보이는 웹서비스에 대한 소개**
+우리나라의 칵테일 소비 증진을 위한 칵테일 소개 및 레시피 공유, 추천 서비스 입니다.
 
-- 사용하려는 데이터(제안된 데이터 중 하나 또는 선택한 다른 데이터 세트)를 명시, 이에 대한 설명
-- 기술 스택 (python, d3, pandas, jupyter, javascript, MySQL 등)
-- 사용된 라이브러리 (numpy, matplotlib, wordcloud 등)
-- 웹서비스에 대한 자세한 개요
+### 💡 프로젝트 아이디어 동기
 
-## 2. 프로젝트 목표
+칵테일 어렵지 않습니다.
 
-**데이터 분석 결과로 도출되는 인사이트와 웹서비스의 해결과제에 대한 논의 (50자 이상)**
+때는 바야흐로 Kaggle에서 데이터를 찾던 4월 19일...
 
-- 프로젝트 아이디어 동기
-- 문제를 해결하기 위한 특정 질문 명시
-- 데이터를 통해 탐색하려는 문제를 구체적으로 작성
+<details><summary>더보기</summary>
+<br>
 
-## 3. 프로젝트 기능 설명
+**진영님** : 혹시 칵테일 잘 아시나요?
 
-**웹서비스의 유용성, 편의성 및 시각화의 실용성에 대한 설명**
+**그 외 팀원** : 아니요... 잘 모르는데...
 
-- 주요 기능 (주된 활용성) 및 서브 기능
-- 프로젝트만의 차별점, 기대 효과
+**진영님** : 그러면 Kaggle에서 칵테일 데이터를 찾았는데 칵테일을 소개하는 프로젝트를 하면 어떨까요?
 
-## 4. 프로젝트 구성도
+📊 **어떤 술을 많이 마실까?**
 
-- 와이어프레임/스토리보드 추가
+각국의 세계 주류 소비량을 비교해보면 우리나라는 칵테일 소비에 비해 맥주 소비량이 월등히 높다.
+
+이 그래프를 보면 우리나라는 칵테일 소비가 적고 인지도가 낮다는 것을 알 수 있다.
+
+- 나라별 맥주 대비 칵테일 소비량 비교 그래프
+
+<img src='https://user-images.githubusercontent.com/97580782/167986752-9ad5503a-9b92-4b5d-ac32-f725d7611b49.png' width=550px>
+
+</details>
+
+### 🚩 프로젝트 목표
+
+**칵테일 정의**
+
+> **칵테일은 술과 여러 종류의 음료, 첨가물 등을 섞어 만든 혼합주를 일컫는다**
+
+소맥, 꿀주, 링겔주 등등...
+
+사실 우리는 그동안 알게 모르게 칵테일을 마셔왔습니다.
+
+평소 술자리에서 개인의 취향에 맞게 커스터마이징 해 먹던 술이 바로 칵테일이거든요.
+
+하지만 아직 많은 사람이 칵테일을 어렵고 멀게만 생각하고 있습니다.
+
+**칵테일 입문자를 위한 인기 있는 칵테일 정보 제공 및 자신만의 레시피 공유, 재밌는 칵테일 컨텐츠를 통해 진입장벽을 낮추고자 합니다.**
+
+### 📊 활용 데이터 셋
+
+#### 1. [Cocktails (Hotaling & Co.)](https://www.kaggle.com/datasets/shuyangli94/cocktails-hotaling-co)
+
+- 칵테일 정보 데이터( 제작자, 재료 )
+- 이유 : 칵테일에 대한 상세한 정보를 전달하기 위해 데이터를 선택
+
+#### 2. [Cocktail Popularity](https://www.kaggle.com/datasets/laurinbrechter/cocktail-popularity)
+
+- 칵테일 인기 순위 ( 연도별, 월별 )
+- 이유 : 칵테일에 대해 생소한 유저들이 칵테일을 쉽게 접할 수 있도록 과거 가장 인기 있었던 칵테일에 대한 정보를 전달하기 위해 데이터를 선택
+
+#### 3. [Alcohol Comsumption around the World](https://www.kaggle.com/datasets/codebreaker619/alcohol-comsumption-around-the-world)
+
+- 나라 별 알코올 소비 비율(beer, wine, sprit(칵테일))
+- 이유 : 칵테일이라는 술이 이미 대중적으로 소비되고 있으며 충분히 매력적인 것임을 증명하기 위해 데이터를 선택
+
+<br>
+
+## 2. 서비스 주요 기능
+
+### 메인 기능
+
+### 1) 딕셔너리 형태의 칵테일 정보 제공
+
+<img src='https://user-images.githubusercontent.com/97580782/167991366-60dcf0bd-a210-4f23-8bbb-9b0045ed697e.png'>
+
+<details><summary>자세한 설명 보기</summary>
+
+- 칵테일 카드를 grid 형태로 제공
+
+  <img src='https://user-images.githubusercontent.com/97580782/167992035-13b4080d-2410-419a-9e39-495933fb67ce.png' width=500px>
+
+- 검색, 정렬 가능
+
+  1. mongoose의 .sort와 search를 사용
+  2. 정렬 후 페이지네이션 형태로 제공
+
+<img src="https://user-images.githubusercontent.com/97580782/167992355-140fe747-aace-4a66-8fa5-53a0eaedafd2.png">
+
+- 무한 스크롤
+
+<img src='https://user-images.githubusercontent.com/97580782/167992524-a647d2b4-117c-4824-9861-41a6556171dd.png'>
+
+</details>
+
+### 2) 딕셔너리 필터링 Top 10 정보 제공
+
+| Top10                                                                                                                         | 자세한 설명                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| <img src='https://user-images.githubusercontent.com/97580782/167993216-60dc277a-67a5-4868-bfe8-3c5aa45adc8f.png' width=500px> | <img src='https://user-images.githubusercontent.com/97580782/167993814-7bb9ec8a-da8a-43df-8833-1632ddaa01d6.png' width=500px> |
+
+### 3) MBTI 별 칵테일 추천
+
+- MBTI 테스트 후 유저에게 대표 칵테일 추천
+- 대표 칵테일에 대한 정보 및 소셜미디어 공유용 사이트 링크 제공
+
+<img src='https://user-images.githubusercontent.com/97580782/167994260-7463250c-ce5f-4379-b11e-ce60d2f40248.png'>
+
+<img src='https://user-images.githubusercontent.com/97580782/167994963-bb79351b-f3dc-4e92-a5f7-3ddfc312d84f.png'>
+
+<br>
+
+### 서브 기능
+
+### 1) 커뮤니티 ( 레시피, 후기 공유 )
+
+- 자신이 만든 칵테일 레시피를 게시판에 작성하여 공유
+- 댓글을 작성하여 후기 공유
+
+### 2) 유저 콘텐츠 ( 좋아요 )
+
+- 로그인 한 유저는 칵테일 상단에 있는 하트 버튼을 눌러 좋아요 추가 가능
+- 유저는 좋아요를 누른 칵테일 리스트 확인 가능
+
+### 3) 각 칵테일의 좋아요 정보 WordCloud 형태의 데이터 시각화 제공
+
+- 워드 수에 대해선 제한이 없고 좋아요 수가 많아질 수록 글씨가 커진다.
+- 목적
+  - 칵테일을 처음 접하는 유저가 쉽게 접근할 수 있도록 인기 있는 칵테일을 워드 클라우드 형태로 제공하는게 좋다고 생각했다.
+
+### 4) 칵테일 관련 퀴즈 콘텐츠 ( 칵린이 TEST )
+
+- 칵테일 관련 상식 퀴즈를 통해 칵테일에 대한 흥미도 향상
+- 퀴즈 결과 및 점수를 알려주고, 틀린 문제에 대해 정답 제공
+
+<br>
+
+### 🎥 시연 영상
+
+<br>
+
+## 3. 프로젝트 구성도
+
+### 📑 와이어프레임
+
+[figma](https://www.figma.com/file/NXgYyU9V2scU1c1P2RrhDZ/%EC%A0%80%EC%AA%BD-%EC%86%90%EB%8B%98%EA%BB%98%EC%84%9C-%EB%B3%B4%EB%82%B4%EC%8B%A0%EA%B2%81%EB%8B%88%EB%8B%A4?node-id=0%3A1)
+
+### 📎 기술 스택
+
+<img src='https://user-images.githubusercontent.com/97580782/167986507-cdddae5f-5f5c-435c-9b68-59b50abac2a9.png' width=550px>
+
+1. Front-End : SCSS, React
+2. Back-End : NodeJS, MongoDB, Express
+3. develop: Docker, Docker Compose, Nginix
+4. Data Analysis : Python, Jupyter, Google Cloud Platform
+
+### 📎 라이브러리
+
+Front
+
+- Mui
+- uuidChart.js
+
+Back
+
+- babel
+- nodemon
+- swagger
+- cors
+- dotenv
+- express
+- joi
+- jsonwebtoken
+- mongoose
+- multer
+- passport
+- passport-google-oauth
+
+Data Analysis
+
+- Numpy
+- Pandas
+- wordCloud
+- beautiful soup
+
+### 📌 프로젝트 구조도
+
+<img src='https://user-images.githubusercontent.com/97580782/167986510-9b64299d-0f80-4c9c-98c3-7db4b90bdd77.png' width=550px>
+
+<br>
+
+## 4. API 문서
+
+👉 [API 문서 보러가기](https://app.swaggerhub.com/apis/elice_jackpot/Cocktail_Service/1.0.0)
+
+<br>
 
 ## 5. 프로젝트 팀원 역할 분담
+
+### 🎰 TEAM JackPot
 
 | 이름   | 담당 업무                   |
 | ------ | --------------------------- |
@@ -48,7 +212,7 @@
 | 김상민 | 프론트엔드 개발             |
 | 백진영 | 프론트엔드 개발             |
 
-**멤버별 responsibility**
+### 멤버별 responsibility
 
 1. 팀장
 
